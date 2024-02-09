@@ -2,73 +2,10 @@
 
 <?php
  
-class Room {
-    private $length;
-    private $width;
-    private $height;
+require_once('House.php');
+require_once('Room.php');
  
-    public function __construct($length, $width, $height) {
-        $this->length = $length;
-        $this->width = $width;
-        $this->height = $height;
-    }
- 
-    public function calculateVolume() {
-        return $this->length * $this->width * $this->height;
-    }
- 
-    // Getter-methoden voor lengte, breedte en hoogte
-    public function getLength() {
-        return $this->length;
-    }
- 
-    public function getWidth() {
-        return $this->width;
-    }
- 
-    public function getHeight() {
-        return $this->height;
-    }
- 
-    // Setter-methoden om waarden in te stellen
-    public function setLength($length) {
-        $this->length = $length;
-    }
- 
-    public function setWidth($width) {
-        $this->width = $width;
-    }
- 
-    public function setHeight($height) {
-        $this->height = $height;
-    }
-}
- 
-class House {
-    private $rooms = [];
- 
-    public function addRoom(Room $room) {
-        $this->rooms[] = $room;
-    }
- 
-    public function getRooms() {
-        return $this->rooms;
-    }
- 
-    public function calculateTotalVolume() {
-        $totalVolume = 0;
-        foreach ($this->rooms as $room) {
-            $totalVolume += $room->calculateVolume();
-        }
-        return $totalVolume;
-    }
- 
-    public function calculatePrice() {
-        $totalVolume = $this->calculateTotalVolume();
-        $pricePerCubicMeter =   1500; // Aangepaste prijsfactor per kubieke meter
-        return $totalVolume * $pricePerCubicMeter;
-    }
-}
+
  
 // Maak een huis aan
 $house = new House();
