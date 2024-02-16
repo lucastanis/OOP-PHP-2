@@ -120,7 +120,6 @@ class ProductList {
     }
 }
 
-// Voorbeeld van het gebruik:
 $productList = new ProductList();
 
 $music = new Music("Amerikaanse Rap", 20, 10, 0.2, "Best of 2024");
@@ -128,11 +127,11 @@ $music->setArtist("Travis Scott");
 $music->addNumber("Trance");
 $music->addNumber("My Eyes");
 
-$film = new Film("Movie Blu-ray", 30, 10, 0.3, "Awesome Action Movie");
+$film = new Film("Godzilla x Kong", 30, 10, 0.3, "Leuke Science-Fiction film");
 $film->setQuality("HD");
 
-$game = new Game("Game CD", 40, 10, 0.4, "Exciting Adventure Game");
-$game->setGenre("Adventure");
+$game = new Game("Forza Horizon", 40, 10, 0.4, "Race Game");
+$game->setGenre("Race");
 $game->addRequirements("Minimum RAM: 8GB");
 $game->addRequirements("Minimum CPU: Quad-core");
 
@@ -156,11 +155,11 @@ foreach ($productList->getProducts() as $product) {
     
     $info = '';
     if ($product instanceof Music) {
-        $info = 'Artiest: ' . $product->getInfo()['Artiest'] . ', Songs: ' . implode(', ', $product->getInfo()['numbers']);
+        $info = 'Artiest: ' . $product->getInfo()['Artiest'] . ', Nummers: ' . implode(', ', $product->getInfo()['numbers']);
     } elseif ($product instanceof Film) {
         $info = 'Kwaliteit: ' . $product->getInfo()['Kwaliteit'];
     } elseif ($product instanceof Game) {
-        $info = 'Genre: ' . $product->getInfo()['genre'] . ', Requirements: ' . implode(', ', $product->getInfo()['requirements']);
+        $info = 'Genre: ' . $product->getInfo()['genre'] . ', Voorwaarden: ' . implode(', ', $product->getInfo()['requirements']);
     }
 
     echo '<td>' . $info . '</td>';
